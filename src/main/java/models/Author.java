@@ -34,12 +34,5 @@ public class Author {
     }
 
     @Override
-    public String toString() {
-        return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", registrationDate=" + registrationDate +
-                '}';
-    }
+    public String toString() {return firstName.charAt(0)+". "+lastName+": "+email;}
 }

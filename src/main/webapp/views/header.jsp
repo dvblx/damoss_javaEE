@@ -14,7 +14,7 @@
  <a href="/persons/">
  <img alt="Логотип" id="top-image" src="images/12355.png">
  </a>
- <h2>Управление персоналом</h2>
+ <h2>BlogApp</h2>
  </div>
 </nav>
 <!-- /Header -->
