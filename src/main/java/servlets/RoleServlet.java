@@ -1,3 +1,5 @@
+package servlets;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +19,7 @@ public class RoleServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         try {
-            writer.println("<h2>Привет RoleServlet</h2>");
+            writer.println("<h2>Привет servlets.RoleServlet</h2>");
         } finally {
             writer.close();
         }
