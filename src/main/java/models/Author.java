@@ -3,10 +3,15 @@ package models;
 import java.time.LocalDate;
 
 public class Author {
+    private Integer authorId;
     private String firstName;
     private String lastName;
     private String email;
     private LocalDate registrationDate;
+
+    public Integer getAuthorId() {return authorId;}
+
+    public void setAuthorId(Integer authorId) {this.authorId = authorId;}
 
     public String getFirstName() {return firstName;}
 
@@ -31,6 +36,14 @@ public class Author {
         this.lastName = lastName;
         this.email = email;
         this.registrationDate = LocalDate.now();
+    }
+
+    public Author(Integer authorId, String firstName, String lastName, String email, LocalDate registrationDate) {
+        this.authorId = authorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.registrationDate = registrationDate;
     }
 
     @Override
