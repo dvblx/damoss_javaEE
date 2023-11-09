@@ -65,25 +65,21 @@ pageEncoding="UTF-8"%>
  <h3>Новая статья</h3>
  <br>
  <div class="mb-3 row">
- <label for="lastname"
- class="col-sm-3 col-form-label">Заголовок</label>
+ <label for="blogTitle" class="col-sm-3 col-form-label">Заголовок</label>
  <div class="col-sm-7">
- <input type="text" class="form-control"
- id="staticLastname"name="lastname" />
+ <input type="text" class="form-control" id="blogTitle"name="blogTitle" />
  </div>
  </div>
  <div class="mb-3 row">
- <label for="firstname"class="col-sm-3 col-form-label">Текст</label>
+ <label for="blogContent"class="col-sm-3 col-form-label">Текст</label>
  <div class="col-sm-7">
- <input type="text"
- class="form-control" id="staticFirstname"
- name="firstname" />
+ <input type="text" class="form-control" id="blogContent" name="blogContent" />
  </div>
  </div>
  <div class="mb-3 row">
  <label for="rolename" class="col-sm-3 col-form-label">Автор</label>
  <div class="col-sm-7">
- <select name="role" class="form-control">
+ <select name="authorField" class="form-control">
  <option>Выберите автора</option>
  <c:forEach var="author" items="${authors}">
  <option value="${author}"> <c:out value="${author}"></c:out>
@@ -93,8 +89,7 @@ pageEncoding="UTF-8"%>
  </div>
  </div>
  <p> <br>
- <button type="submit"
- class="btn btn-primary">Добавить</button>
+ <button type="submit" class="btn btn-primary">Добавить</button>
  </p>
  </form>
  </div>

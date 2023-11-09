@@ -11,8 +11,8 @@ public class AuthorDAO implements RepositoryDAO<Author>{
     private static final String SELECT_ALL = "select author_id, firstname, lastname, email, registration_date from author";
 
     private static final String SELECT_ONE_BY_ID = SELECT_ALL + " WHERE author_id = ?";
-    private static final String INSERT_ONE = "INSERT INTO author(author_id, firstname, lastname, email, registration_date)" +
-            " values(?, ?, ?, ?, ?)";
+    private static final String INSERT_ONE = "INSERT INTO author(firstname, lastname, email, registration_date)" +
+            " values(?, ?, ?, ?)";
     private static final String EDIT_ONE = "UPDATE author SET firstname = ?, lastname = ?, email = ?, registration_date = ? WHERE author_id = ?";
     private static final String DELETE_ONE = "DELETE FROM author WHERE author_id = ?";
     private ConnectionBuilder builder = new DbConnectionBuilder();
