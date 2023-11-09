@@ -60,33 +60,26 @@ pageEncoding="UTF-8"%>
  <h3>Новый автор</h3>
  <br>
  <div class="mb-3">
-<label for="inputRole"
- class="col-sm-3 col-form-label">Фамилия</label>
+<label for="lastName" class="col-sm-3 col-form-label">Фамилия</label>
  <div class="col-sm-6">
- <input type="text" name="inputRole"
- class="form-control" id="personRole" />
+ <input type="text" name="lastName" class="form-control" id="lastName" />
  </div>
  </div>
  <div class="mb-3">
- <label for="inputRole"
-  class="col-sm-3 col-form-label">Имя</label>
+ <label for="firstName" class="col-sm-3 col-form-label">Имя</label>
   <div class="col-sm-6">
-  <input type="text" name="inputRole"
-  class="form-control" id="personRole" />
+  <input type="text" name="firstName" class="form-control" id="firstName" />
   </div>
   </div>
   <div class="mb-3">
-  <label for="inputRole"
-   class="col-sm-3 col-form-label">email</label>
+  <label for="email" class="col-sm-3 col-form-label">email</label>
    <div class="col-sm-6">
-   <input type="text" name="inputRole"
-   class="form-control" id="personRole" />
+   <input type="text" name="email" class="form-control" id="email" />
    </div>
    </div>
  <p>
  <br>
- <button type="submit"
- class="btn btn-primary">Добавить</button>
+ <button type="submit" class="btn btn-primary">Добавить</button>
  <br>
  </p>
  </form>

@@ -47,5 +47,7 @@ public class Author {
     }
 
     @Override
-    public String toString() {return firstName.charAt(0)+". "+lastName+": "+email;}
+    public String toString() {
+        return authorId+": "+firstName.charAt(0)+". "+lastName+": "+email;
+    }
 }
