@@ -46,6 +46,13 @@ public class Author {
         this.registrationDate = registrationDate;
     }
 
+    public Author(Integer authorId, String firstName, String lastName, String email) {
+        this.authorId = authorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return authorId+": "+firstName.charAt(0)+". "+lastName+": "+email;

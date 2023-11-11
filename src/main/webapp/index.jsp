@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 <meta charset="UTF-8">
 <!-- Настройка viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
 <jsp:include page="views/footer.jsp" />
 </div>
 <!-- jQuery -->
-<script src="js/jquery-3.6.4.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Bootstrap JS + Popper JS -->
 <script defer src="js/bootstrap.bundle.min.js"></script>
 </body>

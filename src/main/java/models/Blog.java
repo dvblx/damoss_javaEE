@@ -57,6 +57,13 @@ public class Blog {
         this.author = author;
     }
 
+    public Blog(Integer blogId, String title, String content, Author author) {
+        this.blogId = blogId;
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
     @Override
     public String toString() {
         return "Blog{" +

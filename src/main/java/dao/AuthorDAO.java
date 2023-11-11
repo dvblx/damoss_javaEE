@@ -13,7 +13,7 @@ public class AuthorDAO implements RepositoryDAO<Author>{
     private static final String SELECT_ONE_BY_ID = SELECT_ALL + " WHERE author_id = ?";
     private static final String INSERT_ONE = "INSERT INTO author(firstname, lastname, email, registration_date)" +
             " values(?, ?, ?, ?)";
-    private static final String EDIT_ONE = "UPDATE author SET firstname = ?, lastname = ?, email = ?, registration_date = ? WHERE author_id = ?";
+    private static final String EDIT_ONE = "UPDATE author SET firstname = ?, lastname = ?, email = ? WHERE author_id = ?";
     private static final String DELETE_ONE = "DELETE FROM author WHERE author_id = ?";
     private ConnectionBuilder builder = new DbConnectionBuilder();
 
@@ -48,8 +48,7 @@ public class AuthorDAO implements RepositoryDAO<Author>{
             pst.setString(1, author.getFirstName());
             pst.setString(2, author.getLastName());
             pst.setString(3, author.getEmail());
-            pst.setDate(4, Date.valueOf(author.getRegistrationDate()));
-            pst.setInt(5, author.getAuthorId());
+            pst.setInt(4, author.getAuthorId());
             pst.executeUpdate();
         } catch (Exception e) {
             throw new DAOException(e);
