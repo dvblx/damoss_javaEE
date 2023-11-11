@@ -63,34 +63,43 @@ pageEncoding="UTF-8"%>
  </div>
  <div class="col-4 border px-4">
  <form method="POST" action="">
- <h3>Новая статья</h3>
+ <h3>Редактирование данных</h3>
  <br>
+ <div class="mb-3 row">
+ <label for="idBlog" class="col-sm-3 col-form-label">
+ ID</label>
+ <div class="col-sm-7">
+ <input type="text" class="form-control" readonly
+ id="idperson" value="${blogEdit.getBlogId()}" />
+ </div>
  <div class="mb-3 row">
  <label for="blogTitle" class="col-sm-3 col-form-label">Заголовок</label>
  <div class="col-sm-7">
- <input type="text" class="form-control" id="blogTitle"name="blogTitle" />
+ <input type="text" class="form-control" id="blogTitle"name="blogTitle" value="${blogEdit.getTitle()}"/>
  </div>
  </div>
  <div class="mb-3 row">
  <label for="blogContent"class="col-sm-3 col-form-label">Текст</label>
  <div class="col-sm-7">
- <input type="text" class="form-control" id="blogContent" name="blogContent" />
+ <input type="text" class="form-control" id="blogContent" name="blogContent" value="${blogEdit.getContent()}"/>
  </div>
  </div>
  <div class="mb-3 row">
  <label for="rolename" class="col-sm-3 col-form-label">Автор</label>
  <div class="col-sm-7">
- <select name="authorField" class="form-control">
- <option>Выберите автора</option>
+ <select name="authorField" class="form-control" >
+ <option>${blogEdit.getAuthor()}</option>
  <c:forEach var="author" items="${authors}">
+ <c:if test="${author.getAuthorId() != blogEdit.getAuthor().getAuthorId()}">
  <option value="${author}"> <c:out value="${author}"></c:out>
  </option>
+ </c:if>
  </c:forEach>
  </select>
  </div>
  </div>
  <p> <br>
- <button type="submit" class="btn btn-primary">Добавить</button>
+ <button type="submit" class="btn btn-primary">Изменить</button>
  </p>
  </form>
  </div>

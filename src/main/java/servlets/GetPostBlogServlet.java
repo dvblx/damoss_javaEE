@@ -13,47 +13,49 @@ import models.Author;
 import models.Blog;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.List;
 
 @WebServlet("/blogs")
-public class BlogServlet extends HttpServlet {
-    private static final long serialVersionUID = 3L;
+public class GetPostBlogServlet extends HttpServlet {
+    @Serial
+    private static final long serialVersionUID = 4L;
     private final ConnectionProperty prop;
     private final AuthorDAO authorDAO;
     private final BlogDAO blogDAO;
 
-    public BlogServlet() throws IOException {
+    public GetPostBlogServlet() throws IOException {
         super();
         prop = new ConnectionProperty();
         authorDAO = new AuthorDAO();
         blogDAO = new BlogDAO();
     }
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Author> authors;
         List<Blog> blogs;
         AuthorDAO authorDAO = new AuthorDAO();
         BlogDAO blogDAO = new BlogDAO();
         try {
             authors = authorDAO.findAll();
-            req.setAttribute("authors", authors);
+            request.setAttribute("authors", authors);
             blogs = blogDAO.findAll();
-            req.setAttribute("blogs", blogs);
+            request.setAttribute("blogs", blogs);
         } catch (DAOException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("views/blog.jsp").forward(req, resp);
+        request.getRequestDispatcher("views/blog.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String authorId = req.getParameter("authorField").split(" ")[0];
+            String authorId = request.getParameter("authorField").split(" ")[0];
             authorId = authorId.substring(0, authorId.length() - 1);
             Author author = authorDAO.findById(Integer.parseInt(authorId));
-            blogDAO.insert(new Blog(req.getParameter("blogTitle"), req.getParameter("blogContent"), author));
+            blogDAO.insert(new Blog(request.getParameter("blogTitle"), request.getParameter("blogContent"), author));
         } catch (DAOException e) {
             e.printStackTrace();
         }
-        doGet(req, resp);
+        doGet(request, response);
     }
 }

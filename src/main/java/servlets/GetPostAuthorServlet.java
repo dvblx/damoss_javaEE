@@ -10,40 +10,41 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Author;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serial;
 import java.util.List;
 
 @WebServlet("/authors")
-public class AuthorServlet extends HttpServlet {
-    private static final long serialVersionUID = 4L;
+public class GetPostAuthorServlet extends HttpServlet {
+    @Serial
+    private static final long serialVersionUID = 3L;
     private final ConnectionProperty prop;
     private final AuthorDAO dao;
 
-    public AuthorServlet() throws FileNotFoundException, IOException {
+    public GetPostAuthorServlet() throws IOException {
         super();
         prop = new ConnectionProperty();
         dao = new AuthorDAO();
     }
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Author> authors;
         try {
             authors = dao.findAll();
-            req.setAttribute("authors", authors);
+            request.setAttribute("authors", authors);
         } catch (DAOException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("views/author.jsp").forward(req, resp);
+        request.getRequestDispatcher("views/author.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            dao.insert(new Author(req.getParameter("firstName"), req.getParameter("lastName"), req.getParameter("email")));
+            dao.insert(new Author(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("email")));
         } catch (DAOException e) {
             e.printStackTrace();
         }
-        doGet(req, resp);
+        doGet(request, response);
     }
 }
 

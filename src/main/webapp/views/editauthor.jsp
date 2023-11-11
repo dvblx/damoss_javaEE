@@ -59,29 +59,35 @@ pageEncoding="UTF-8"%>
  </div>
  <div class="col-4 border px-4">
  <form method="POST" action="">
- <h3>Новый автор</h3>
+ <h3>Редактирование данных</h3>
  <br>
+  <div class="mb-3">
+  <label for="idAuthor" class="col-sm-3 col-form-label">ID</label>
+  <div class="col-sm-6">
+  <input type="text" class="form-control" readonly
+  id="idperson" value="${authorEdit.getAuthorId()}" />
+  </div>
  <div class="mb-3">
 <label for="lastName" class="col-sm-3 col-form-label">Фамилия</label>
  <div class="col-sm-6">
- <input type="text" name="lastName" class="form-control" id="lastName" />
+ <input type="text" name="lastName" class="form-control" id="lastName" value="${authorEdit.getLastName()}"/>
  </div>
  </div>
  <div class="mb-3">
  <label for="firstName" class="col-sm-3 col-form-label">Имя</label>
   <div class="col-sm-6">
-  <input type="text" name="firstName" class="form-control" id="firstName" />
+  <input type="text" name="firstName" class="form-control" id="firstName" value="${authorEdit.getFirstName()}"/>
   </div>
   </div>
   <div class="mb-3">
   <label for="email" class="col-sm-3 col-form-label">email</label>
    <div class="col-sm-6">
-   <input type="text" name="email" class="form-control" id="email" />
+   <input type="text" name="email" class="form-control" id="email" value="${authorEdit.getEmail()}"/>
    </div>
    </div>
  <p>
  <br>
- <button type="submit" class="btn btn-primary">Добавить</button>
+ <button type="submit" class="btn btn-primary">Изменить</button>
  <br>
  </p>
  </form>

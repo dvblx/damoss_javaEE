@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class BlogDAO implements RepositoryDAO<Blog> {
         try (Connection con = getConnection(); PreparedStatement pst = con.prepareStatement(EDIT_ONE)) {
             pst.setString(1, blog.getTitle());
             pst.setString(2, blog.getContent());
-            pst.setDate(3, Date.valueOf(blog.getLastUpdateDate()));
+            pst.setDate(3, Date.valueOf(LocalDate.now()));
             pst.setInt(4, blog.getAuthor().getAuthorId());
             pst.setInt(5, blog.getBlogId());
             pst.executeUpdate();
